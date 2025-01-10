@@ -1,0 +1,33 @@
+const todos = [];
+
+function addTodo(todo) {
+  todos.push(todo);
+  console.log(`${todo} added to the list.`);
+}
+
+function listTodos() {
+  if (todos.length === 0) {
+    console.log("No todos found.");
+  } else {
+    console.log("To-Do List:");
+    todos.forEach((todo, index) => {
+      console.log(`${index + 1}. ${todo}`);
+    });
+  }
+}
+
+function removeTodo(index) {
+  if (index >= 0 && index < todos.length) {
+    const removedTodo = todos.splice(index, 1)[0];
+    console.log(`${removedTodo} removed from the list.`);
+  } else {
+    console.log("Invalid index.");
+  }
+}
+
+// Example usage:
+addTodo("Go to the grocery store");
+addTodo("Finish the project");
+listTodos();
+removeTodo(1); 
+listTodos();
